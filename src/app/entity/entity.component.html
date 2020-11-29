@@ -1,0 +1,90 @@
+
+
+
+    <mat-tab-group>
+        <mat-tab label="Entity">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="entitytype">
+                  <th mat-header-cell *matHeaderCellDef> Entity Type </th>
+                  <td mat-cell *matCellDef="let element"> {{element.entityType}} </td>
+                </ng-container>
+              
+              
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="export">
+                  <th mat-header-cell *matHeaderCellDef> Export </th>
+                  <td mat-cell *matCellDef="let element"> <mat-icon class="example-icon">import_export</mat-icon></td>
+                </ng-container>
+              
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="edit">
+                  <th mat-header-cell *matHeaderCellDef> Edit </th>
+                  <td mat-cell *matCellDef="let element"><mat-icon class="example-icon">edit</mat-icon>  </td>
+                </ng-container>
+                <ng-container matColumnDef="delete">
+                  <th mat-header-cell *matHeaderCellDef> Delete </th>
+                  <td mat-cell *matCellDef="let element"> <mat-icon class="example-icon">delete</mat-icon> </td>
+                </ng-container>
+              
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table> 
+              <mat-card *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center">
+                <mat-progress-spinner 
+                  color="warn" 
+                  mode="indeterminate">
+                </mat-progress-spinner>
+              </mat-card>
+          
+        </mat-tab>
+        <mat-tab label="Add Entity">
+          
+  
+
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Personal data
+              </mat-panel-title>
+              <mat-panel-description>
+                Type your name and age
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+        
+            <mat-form-field>
+              <input matInput placeholder="First name">
+            </mat-form-field>
+        
+            <mat-form-field>
+              <input matInput placeholder="Age">
+            </mat-form-field>
+          </mat-expansion-panel>
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Self aware panel
+              </mat-panel-title>
+              <mat-panel-description>
+                Currently I am {{panelOpenState ? 'open' : 'closed'}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>I'm visible because I am open</p>
+          </mat-expansion-panel>
+        </mat-accordion>
+        
+        
+        
+        
+        
+        </mat-tab>
+        <mat-tab label="Import Entity"> Content 3 </mat-tab>
+      </mat-tab-group>

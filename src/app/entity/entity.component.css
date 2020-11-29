@@ -1,0 +1,22 @@
+table {
+    width: 90%;
+    height: 60%;
+    margin-left: 2%;
+  }
+  
+  
+  button {
+ 
+    margin-left: 2%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    }
+    
+    mat-tab-group{
+      margin-left: 2%;
+     
+     }
+     mat-expansion-panel{
+      width: 90%;   
+    }
+    
